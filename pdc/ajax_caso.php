@@ -131,6 +131,7 @@ if( $_POST["function"]=="add_client" ){
           $code         = $mysqli2->real_escape_string($_POST["code"]);
           $created_by   = $mysqli2->real_escape_string($_POST["created_by"]);
           $cuantia      = $mysqli2->real_escape_string($_POST["cuantia"]);
+          $desstatus    = $mysqli2->real_escape_string($_POST["desstatus"]);
           $conv = array("$" => "", "," => "");
           $cuantia = strtr($cuantia,$conv);
 
@@ -139,7 +140,7 @@ if( $_POST["function"]=="add_client" ){
                       "VALUES (NULL,'".$name."','".$description."','".$status."','".$code."' , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,'".$created_by."',".$cuantia." );";
                       $mysqli2->real_query($SQL_CASO);
           #echo $SQL_CASO;
-          bitacoraNewCaso($mysqli2->insert_id,  ' NOMBRE '.$name.' CODIGO '.$code.' ESTADO '.$status.' CUANTIA '.$cuantia.' DESCRIPCION DEL CASO '.$description);
+          bitacoraNewCaso($mysqli2->insert_id,  ' NOMBRE '.$name.' CODIGO '.$code.' ESTADO '.$desstatus.' CUANTIA '.$cuantia.' DESCRIPCION DEL CASO '.$description);
 
           echo '<i class="fa fa-check-circle" aria-hidden="true"></i> los cambios fueron guardados.@'.rawurlencode(base64_encode(auyama_encrypt($mysqli2->insert_id)));
         }

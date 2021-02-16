@@ -98,6 +98,7 @@ foreach ($contacts_type as $c) {
               }
               ?>
             </select>
+            <input type="hidden" id="desstatus" name="desstatus">
           </div>
           <div class="col-md-4">
             <div class="form-group">
@@ -109,6 +110,7 @@ foreach ($contacts_type as $c) {
             <label for="notes">Descripcion del caso:</label>
             <textarea name="notes" id="notes" class="notes"> </textarea>
           </div>
+
 
           <div class="col-md-12">
             <button type="submit" id="new_caso" name="new_caso" class="btn btn-primary">CREA EL CASO</button>
@@ -125,6 +127,13 @@ foreach ($contacts_type as $c) {
 
   <?php include("inc/footer.php"); ?>
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript">
+    var form = document.getElementById('contact_form');
+    form.elements.status.onchange = function() {
+      var option = this.options[this.selectedIndex];
+      this.form.elements.desstatus.value = option.innerHTML;
+    }
+  </script>
 </body>
 
 </html>
