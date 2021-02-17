@@ -35,3 +35,15 @@ function bitacoraUpdateDesc($id, $texto)
 
     $mysqli->close();
 }
+function bitacoraUpdateCaso($id, $texto)
+{
+    global $mysqli;
+    $modulo = "Actualizar Información inicial del caso";
+    $fecha = date("y/m/d h:i:s ");
+
+    $SQL_BITACORA = "INSERT INTO bitacora (id_usuario, modulo, fecha, id_caso, descripcion)"
+        . "VALUES ('" . $_SESSION["auth_id"] . "','" . $modulo . "',' " . $fecha . "', '" . $id . "', '" . $texto . "')";
+    $mysqli->real_query($SQL_BITACORA);
+
+    $mysqli->close();
+}

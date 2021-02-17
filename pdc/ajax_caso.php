@@ -244,8 +244,10 @@ if ($_POST["function"] == "delete_item") {
 if ($_POST["function"] == "save_status_caso") {
 
   $status = $mysqli2->real_escape_string($_POST["status"]);
+  $desstatus = $mysqli2->real_escape_string($_POST["desstatus"]);
   $SQL_CASO_STATUS = "UPDATE casos set status ='" . $status . "' where caso_id=" . $_ID;
   $mysqli2->real_query($SQL_CASO_STATUS);
+  bitacoraUpdateCaso($_ID, $desstatus);
   # echo  $SQL_CASO_STATUS;
   sleep(1);
 }
@@ -284,6 +286,7 @@ if ($_POST["function"] == "update_caso_code") {
   $value = $mysqli2->real_escape_string($_POST["value"]);
   $UPDATE_CASO_CODE = "UPDATE casos set code ='" . $value . "' where caso_id=" . $_ID;
   $mysqli2->real_query($UPDATE_CASO_CODE);
+  bitacoraUpdateCaso($_ID, $value);
   echo empty($value)  ? "Vacio!" : $value;
 }
 if ($_POST["function"] == "update_caso_cuantia") {
@@ -292,7 +295,7 @@ if ($_POST["function"] == "update_caso_cuantia") {
   $cuantia = strtr($value, $conv);
   $UPDATE_CASO_CODE = "UPDATE casos set cuantia ='" . $cuantia . "' where caso_id=" . $_ID;
   $mysqli2->real_query($UPDATE_CASO_CODE);
-
+  bitacoraUpdateCaso($_ID, $cuantia);
   echo empty($cuantia)  ? "Vacio!" : "$" . number_format($cuantia, 0);
 }
 
@@ -300,6 +303,7 @@ if ($_POST["function"] == "update_caso_name") {
   $value = $mysqli2->real_escape_string($_POST["value"]);
   $UPDATE_CASO_NAME = "UPDATE casos set name ='" . $value . "' where caso_id=" . $_ID;
   $mysqli2->real_query($UPDATE_CASO_NAME);
+  bitacoraUpdateCaso($_ID, $value);
   echo empty($value)  ? "Vacio!" : $value;
 }
 
