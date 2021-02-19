@@ -33,7 +33,7 @@
 <div class="container-fluid" style="max-width:1450px;margin-top:20px;">
     <div id="content" class="wrapper">
         <div class="row">
-            <div class="col-md-10"><h3>Bitacora De los Documentos</h3></div>
+            <div class="col-md-10"><h3>Bitacora</h3></div>
 			<div class="col-md-2" style="center">	
 				<a href="javascript: history.go(-1)">
 						<button type="button" class="btn btn-primary mt-2 float-right">REGRESAR AL CASO</button>
