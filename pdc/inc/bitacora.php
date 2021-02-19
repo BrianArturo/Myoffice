@@ -47,3 +47,16 @@ function bitacoraUpdateCaso($id, $texto)
 
     $mysqli->close();
 }
+
+function bitacoraContactos($id, $texto)
+{
+    global $mysqli;
+    $modulo = "Creación & Actualización de contactos";
+    $fecha = date("y/m/d h:i:s ");
+
+    $SQL_BITACORA = "INSERT INTO bitacora (id_usuario, modulo, fecha, id_caso, descripcion)"
+        . "VALUES ('" . $_SESSION["auth_id"] . "','" . $modulo . "',' " . $fecha . "', '" . $id . "', '" . $texto . "')";
+    $mysqli->real_query($SQL_BITACORA);
+
+    $mysqli->close();
+}

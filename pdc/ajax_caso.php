@@ -312,16 +312,14 @@ if ($_POST["function"] == "create_add_client") {
 
   $ADD_CONTACT =    "INSERT INTO contacts " .
     "(contact_id, name,status,created_by, datalog) " .
-    "VALUES (" .
-    "null, 
-          '" . $_POST["contact_name_new"] . "',
-          '1','" . $_SESSION["auth_id"] . "',CURRENT_TIMESTAMP);";
+    "VALUES 
+    (" ."null,'" . $_POST["contact_name_new"] . "','1','" . $_SESSION["auth_id"] . "',CURRENT_TIMESTAMP);";
   $mysqli->real_query($ADD_CONTACT);
   $new_contact_id = $mysqli->insert_id;
 
   $query = "INSERT INTO casos_contacts ( caso_id, contact_id, contact_type) values('" . $_ID . "','" . $new_contact_id . "','1' );  ";
-
   $mysqli->real_query($query);
+  bitacoraContactos($_ID,$_POST["contact_name_new"]);
 
   ?>
   <div class="row mr-1 ml-1 font-weight-bold d-none d-lg-flex   ">

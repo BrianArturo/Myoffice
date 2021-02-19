@@ -1,5 +1,6 @@
 <?php
 include("inc/config.php");
+include('inc/bitacora.php');
 session_start();
 if (!isset($_SESSION["auth_id"]) ){ header ("Location:index.php"); }
 if($_GET['logout']=="logout"){ unset($_SESSION); }
@@ -21,6 +22,18 @@ if( $_POST["function"]=="update_contact" ){
                "WHERE contact_id='".$_ID."'; ";
      //echo $query;
     $mysqli->real_query($query); 
+
+    bitacoraContactos($_ID, 
+    " Nombre ".$mysqli->real_escape_string($_POST["name"]).
+    " Telefono ".$mysqli->real_escape_string($_POST["phone"]).
+    " Correo ".$mysqli->real_escape_string($_POST["email"]).
+    " Nit ".$mysqli->real_escape_string($_POST["nit"]).
+    " Lugar de Nacimiento ".$mysqli->real_escape_string($_POST["birthplace"]).
+    " Cumpleaños ".$mysqli->real_escape_string($_POST["birthdate"]).
+    " Dirección ".$mysqli->real_escape_string($_POST["address"]).
+    " Ciudad ".$mysqli->real_escape_string($_POST["citty"])
+    );
+
     echo '<i class="fa fa-check-circle" aria-hidden="true"></i> los cambios fueron guardados.';
     sleep(2);
     } 
