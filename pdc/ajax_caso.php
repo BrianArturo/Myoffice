@@ -276,6 +276,7 @@ if ($_POST["function"] == "save_contact_type") {
   $SQL_CONTACT_STATUS = "UPDATE casos_contacts set contact_type ='" . $contact_type . "' where caso_id=" . $_ID . " and contact_id=" . $contact_id;
   $mysqli2->real_query($SQL_CONTACT_STATUS);
   echo  $SQL_CONTACT_STATUS;
+  bitacoraContactos($_ID,'Se ajusta relación '.$contact_type);
   sleep(1);
 }
 
