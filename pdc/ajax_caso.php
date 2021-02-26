@@ -74,6 +74,7 @@ if ($_POST["function"] == "delete_client") {
   $query      = "DELETE from casos_contacts where caso_id='" . $_ID . "' and contact_id='" . $client_id . "'   ";
   #echo $query;
   $mysqli->real_query($query);
+  bitacoraContactos($_ID, 'Se ha eliminado el contacto '.$client_id.' del caso '.$_ID);
 
   ?>
   <div class="row mr-1 ml-1 font-weight-bold d-none d-lg-flex   ">
