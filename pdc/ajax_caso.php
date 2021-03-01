@@ -36,6 +36,7 @@ if ($_POST["function"] == "add_client") {
   $query = "INSERT INTO casos_contacts ( caso_id, contact_id, contact_type) values('" . $_ID . "','" . $_POST["client_id"] . "','1' );  ";
   #echo $query;
   $mysqli->real_query($query);
+  bitacoraNewCaso($_ID, "Se agrego el cliente ".$_POST["client_id"]);
 
 ?>
   <div class="row mr-1 ml-1 font-weight-bold d-none d-lg-flex   ">
