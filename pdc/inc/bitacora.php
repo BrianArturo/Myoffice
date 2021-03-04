@@ -13,7 +13,7 @@ if ($mysqli->connect_errno) {
 function bitacoraNewCaso($id, $texto)
 {
     global $mysqli;
-    $modulo = "Nuevo Caso";
+    $modulo = "Adición contacto";
     $fecha = date("y/m/d h:i:s ");
 
     $SQL_BITACORA = "INSERT INTO bitacora (id_usuario, modulo, fecha, id_caso, descripcion)"
