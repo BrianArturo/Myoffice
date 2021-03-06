@@ -113,10 +113,16 @@ if ($_GET['logout'] == "logout") {
           <hr>
           <input type="hidden" class="form-control" id="caso_id" name="caso_id" value="<?php echo rawurlencode(base64_encode(auyama_encrypt($c["caso_id"]))); ?>">
         </div>
+        <div class="col-md-12">
+          <form action="datos_bitacora.php" method="GET">
+            <input type="hidden" name="id_caso" value="<?php echo $id; ?>">
+            <button type="submit" class="btn btn-primary">BITACORA</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-
+<br>
   <div class="container-fluid maxwidth">
     <div id="content" class="wrapper ">
 
@@ -333,14 +339,7 @@ if ($_GET['logout'] == "logout") {
           <i class="fa fa-spinner fa-3x fa-fw fa-spin" aria-hidden="true"></i> Guardando las modificaciones...
         </div>
 
-        <div class="col-md-12 mt-3">
-          <h3>
-            <button type="button" id="add_note" name="add_note" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Agrega una nota">
-              AGREGA NOTAS
-            </button> Notas
-          </h3>
-          <hr>
-        </div>
+
         <div class="col-md-12 mt-3 mb-3 dontshow" id="note-form">
           <div class="row">
             <div class="col-md-8 m-auto">
@@ -364,29 +363,6 @@ if ($_GET['logout'] == "logout") {
         </div>
 
 
-
-
-        <div class="col-md-12 mt-3 row-zebra " id="note-spool">
-
-          <?php
-          $SQL_NOTES = "SELECT * FROM casos_notes join notes on casos_notes.notes_id=notes.notes_id where  notes.status>0 and caso_id=" . $c["caso_id"] . " order by creation asc";
-
-          $mysqli2->real_query($SQL_NOTES);
-          $notes = $mysqli2->use_result();
-
-          while ($n = $notes->fetch_assoc()) {
-            echo  '<div class="row mr-1 ml-1">' .
-              '<div class="col-md-1">' .
-              '<i class="fa fa-trash fa-2x delete_note" aria-hidden="true " object="delete_note" item="' . rawurlencode(base64_encode(auyama_encrypt($n["notes_id"]))) . '"></i>' .
-              '</div>' .
-              '<div class="col-md-3"><strong>Fecha:</strong> ' . $n["creation"] . '</div>' .
-              '<div class="col-md-8 "><strong>Categorias:</strong> ' . $n["tags"] . '</div>' .
-              '<div class="col-md-12"><strong>NOTA:</strong> ' . $n["note"] . '</div>' .
-              '</div>';
-          }
-
-          ?>
-        </div>
         <div class="col-md-12 mt-3">
           <h3>
             <button type="button" id="ver_pagos" name="ver_pagos" class="btn btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-placement="top" title="Ver Pagos del caso">
@@ -500,12 +476,7 @@ if ($_GET['logout'] == "logout") {
           </div>
         </div>
 -->
-        <div class="col-md-12">
-          <form action="datos_bitacora.php" method="GET">
-            <input type="hidden" name="id_caso" value="<?php echo $id; ?>">
-            <button type="submit" class="btn btn-primary">BITACORA</button>
-          </form>
-        </div>
+        
         <div class="col-md-12 mt-3 pt-3">
           <h3 class="">
             <a href="documentos.php?id=<?php echo rawurlencode(base64_encode(auyama_encrypt($c["caso_id"]))); ?>&count=<?php echo rawurlencode(base64_encode(auyama_encrypt($count))); ?>&documentcount=<?php echo rawurlencode(base64_encode(auyama_encrypt($document_count["total"]))); ?>">
