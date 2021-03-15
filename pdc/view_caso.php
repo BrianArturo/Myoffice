@@ -116,7 +116,7 @@ if ($_GET['logout'] == "logout") {
         <div class="col-md-12">
           <form action="datos_bitacora.php" method="GET">
             <input type="hidden" name="id_caso" value="<?php echo $id; ?>">
-            <button type="submit" class="btn btn-primary">BITACORA</button>
+            <button type="submit" class="btn" style="background-color: #CEED53;">BITACORA</button>
           </form>
         </div>
       </div>

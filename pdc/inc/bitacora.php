@@ -60,3 +60,16 @@ function bitacoraContactos($id, $texto)
 
     $mysqli->close();
 }
+
+function bitacoraPagos($id, $texto)
+{
+    global $mysqli;
+    $modulo = "Se agrego el pago";
+    $fecha = date("y/m/d h:i:s ");
+
+    $SQL_BITACORA = "INSERT INTO bitacora (id_usuario, modulo, fecha, id_caso, descripcion)"
+        . "VALUES ('" . $_SESSION["auth_id"] . "','" . $modulo . "',' " . $fecha . "', '" . $id . "', '" . $texto . "')";
+    $mysqli->real_query($SQL_BITACORA);
+
+    $mysqli->close();
+}

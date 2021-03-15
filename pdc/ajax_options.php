@@ -39,6 +39,7 @@ casos_options
         $QUERY_OPTION = "INSERT INTO pagos ( pago_id, caso_id,fecha,valor,tipo_pago,descripcion) values (NULL,'".$_ID."','".$_POST["tags"]."','".$_POST["valor"]."','".$tipoPago."','".$_POST["descripcion"]."')";
         //var_dump($QUERY_OPTION);exit();
         $mysqli->real_query($QUERY_OPTION);
+        bitacoraPagos($_ID," Fecha ".$_POST["tags"]." Valor ".$_POST["valor"]." Tipo de pago ".$tipoPago." Descripción ".$_POST["descripcion"])
     }
     if( $_POST["function"]=="delete_option" ){
         $QUERY_OPTION_DELETE = "DELETE  from casos_options where options_id ='".$_POST["option_id"]."' AND caso_id='".$_ID."'";
