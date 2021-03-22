@@ -261,12 +261,14 @@ if ($_POST["function"] == "anular_pago") {
     $SQL_ANULAR_PAGO = "UPDATE casos set cuantia = cuantia+'" . $cuantia . "' where caso_id=" . $_ID;
     $mysqli2->real_query($SQL_ANULAR_PAGO);
     $mysqli2->close();
+
   }
   $mysqli2 = new mysqli($host, $user, $pass, $name);
   $SQL_ANULAR_PAGO = "UPDATE pagos set anulado = 1 where pago_id=" . $_POST["pagoId"];
   $mysqli2->real_query($SQL_ANULAR_PAGO);
   $mysqli2->close();
   sleep(1);
+  bitacoraPagosAnular($_ID, " Se anulo el pago ".$_POST["pagoId"]." con valor ".$_POST["valorPago"]." tipo de pago ".$_POST["tipoPago"]." del caso ".$_ID);
 }
 
 

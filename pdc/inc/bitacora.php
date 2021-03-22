@@ -73,3 +73,16 @@ function bitacoraPagos($id, $texto)
 
     $mysqli->close();
 }
+
+function bitacoraPagosAnular($id, $texto)
+{
+    global $mysqli;
+    $modulo = "Se anulo el pago";
+    $fecha = date("y/m/d h:i:s ");
+
+    $SQL_BITACORA = "INSERT INTO bitacora (id_usuario, modulo, fecha, id_caso, descripcion)"
+        . "VALUES ('" . $_SESSION["auth_id"] . "','" . $modulo . "',' " . $fecha . "', '" . $id . "', '" . $texto . "')";
+    $mysqli->real_query($SQL_BITACORA);
+
+    $mysqli->close();
+}
