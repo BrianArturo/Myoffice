@@ -222,7 +222,7 @@ if ($_GET['logout'] == "logout") {
 
         <div class="col-md-12 mt-3" id="contact">
           <h3>
-            <button type="button" class="btn btn-secondary" id="add-contact">
+            <button type="button" class="btn" style="background-color: #CB6CE6;" id="add-contact">
               <i class="fa fa-plus fa-1x" aria-hidden="true"></i> CREAR
             </button>
             Contactos
@@ -252,7 +252,7 @@ if ($_GET['logout'] == "logout") {
               <input type="text" class="form-control" id="contact_name_new" name="contact_name_new" placeholder="Nombre contacto" required>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-secondary" id="create_add_client" name="create_add_client">
+              <button type="button" class="btn" style="background-color: #CB6CE6;"  id="create_add_client" name="create_add_client">
                 <i class="fa fa-user" aria-hidden="true"></i> Crea Contacto
               </button>
 
@@ -302,7 +302,7 @@ if ($_GET['logout'] == "logout") {
               '<div class="col-md-2" data-toggle="tooltip" data-placement="top" >' .
               '<button class="btn btn-primary delete-contact"   contact-id="' . rawurlencode(base64_encode(auyama_encrypt($u["contact_id"]))) . '"><i class="fa fa-trash   mt-2  " aria-hidden="true"  ></i></button> ' .
               '<a href="view_contact.php?id=' . rawurlencode(base64_encode(auyama_encrypt($u["contact_id"]))) . '">' .
-              '<button class="btn btn-primary"><i class="fa fa-address-book   mt-2" aria-hidden="true"></i> EDITAR</button>' .
+              '<button class="btn" style="background-color:  #CB6CE6;"><i class="fa fa-address-book   mt-2" aria-hidden="true"></i> EDITAR</button>' .
               '</a>' .
               $email_icon .
               '</div>' .
@@ -365,9 +365,9 @@ if ($_GET['logout'] == "logout") {
 
         <div class="col-md-12 mt-3">
           <h3>
-            <button type="button" id="ver_pagos" name="ver_pagos" class="btn btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-placement="top" title="Ver Pagos del caso">
+            <button type="button" id="ver_pagos" name="ver_pagos" class="btn" style="background-color: #CEED53;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-placement="top" title="Ver Pagos del caso">
               VER PAGO
-            </button> Pagos
+            </button>
           </h3>
           <hr>
         </div>
@@ -480,7 +480,7 @@ if ($_GET['logout'] == "logout") {
         <div class="col-md-12 mt-3 pt-3">
           <h3 class="">
             <a href="documentos.php?id=<?php echo rawurlencode(base64_encode(auyama_encrypt($c["caso_id"]))); ?>&count=<?php echo rawurlencode(base64_encode(auyama_encrypt($count))); ?>&documentcount=<?php echo rawurlencode(base64_encode(auyama_encrypt($document_count["total"]))); ?>">
-              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
+              <button type="button" class="btn"  style="background-color: #CB6CE6;" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
                 </i> SUBIR DOCUMENTOS
               </button>
             </a>

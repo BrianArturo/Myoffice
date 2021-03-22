@@ -57,7 +57,7 @@ FIN SETTINGS
 				if($_SESSION["type"] !="guest"){
 				?>
 				<div class="col-md-6 text-right">
-					<h3><a href="add_casos.php" class="btn btn-primary" >CREAR CASO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
+					<h3><a href="add_casos.php" class="btn" style="background-color: #CB6CE6;">CREAR CASO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
 				</div>
 		
 				<?php } ?>
@@ -137,13 +137,13 @@ FIN SETTINGS
 					#'<!--<i class="fa fa-trash fa-2x delete_caso" aria-hidden="true " object="delete_caso" item="'.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'"></i>--> '. 
 					echo '<td style="width:5%;"> '.
 					'<a  href="visitante.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'&count='.rawurlencode(base64_encode(auyama_encrypt($count))).'"   >
-					<button class="btn btn-primary" >ENTRAR</button></a> ';
+					<button class="btn" style="background-color: #CEED53;" >ENTRAR</button></a> ';
 				}
 				else{
 					#'<!--<i class="fa fa-trash fa-2x delete_caso" aria-hidden="true " object="delete_caso" item="'.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'"></i>--> '. 
 				echo '<td style="width:5%;"> '.
 				'<a  href="view_caso.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'&count='.rawurlencode(base64_encode(auyama_encrypt($count))).'" data-toggle="tooltip"  >
-				<button class="btn btn-primary" >  ENTRAR </button></a> ';
+				<button class="btn" style="background-color: #CEED53;" >  ENTRAR </button></a> ';
 			}
 				/*if(  $_SESSION["type"] =="admin" ){
 					echo '<a  href="assign.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'"> '.

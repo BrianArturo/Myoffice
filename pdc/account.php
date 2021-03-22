@@ -64,7 +64,7 @@ if($_GET['logout']=="logout"){ unset($_SESSION); }
 								<em class="text-secondary">Maximo/min 12/8 maiuscula/minuscula y !@#$%^&*_=+-</em>
 							</div>
 							<div class="col-md-3  ">
-								<button type="submit" name="updateuser" class="btn btn-success">Modifica Usuario</button>
+								<button type="submit" name="updateuser" class="btn btn-success" style="background-color: #CB6CE6;">Modifica Usuario</button>
 							</div>
 						</div>
 					</form>

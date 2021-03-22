@@ -32,7 +32,7 @@ if($_GET['logout']=="logout"){ unset($_SESSION); }
 					<?php 
 						if (!isset($_GET['f'])){ ?>
 					<div class="col-md-6 text-right" id="add" style="display: block;">
-						<h3 ><a href="usuarios.php?f=add" class="btn btn-primary" onclick="add()">
+						<h3 ><a href="usuarios.php?f=add" class="btn" style="background-color: #CB6CE6;" onclick="add()">
 							CREAR USUARIO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
 					</div><?php } ?>
 				</div>
@@ -168,7 +168,7 @@ if($_GET["f"]=="add"){
 			
 			echo '<tr>';
 				echo '<td><a  href="view_user.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["id"]))).'">
-					<button class="btn btn-primary" >ENTRAR</button>
+					<button class="btn" style="background-color: #CEED53;">ENTRAR</button>
 
 				 '.$linea["id"].'</a></td>';
 				echo '<td>'.$linea["name"].'</td>';

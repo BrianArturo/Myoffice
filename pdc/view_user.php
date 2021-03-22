@@ -139,7 +139,7 @@ FIN SETTINGS
             <em class="text-secondary">Maximo/min 12/8 maiuscula/minuscula y !@#$%^&*_=+-</em>
             </div>
 			<div class="col-md-12 text-center">
-				<button type="submit" name="updateuser" class="btn btn-success btn-lg m-3">Modifica Usuario</button>
+				<button type="submit" name="updateuser" class="btn btn-success btn-lg m-3" style="background-color: #CB6CE6;">Modifica Usuario</button>
 			</div>
 
 		</div>
@@ -181,7 +181,7 @@ FIN SETTINGS
                     echo '<tr>';
                         echo '<td>';
                         echo '<a href="view_caso.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["caso_id"]))).'">
-                            <button class="btn btn-primary" >EDITAR</button></a>
+                            <button class="btn" style="background-color: #CEED53;" >EDITAR</button></a>
                          ';
                         echo $linea["caso_id"];
                         echo '</td>';
