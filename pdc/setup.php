@@ -149,7 +149,7 @@ if($_SESSION["type"] =="admin" ){
 			//{
 			echo '<tr>';
 				//echo '<td><a  href="setup.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["setting_id"]))).'"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> '.$linea["setting_id"].'</a></td>';
-				echo '<td><a  href="setup.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["setting_id"]))).'"> <button class="btn" style="background-color: #CB6CE6;">ENTRAR</button></a></td>';
+				echo '<td><a  href="setup.php?id='.rawurlencode(base64_encode(auyama_encrypt($linea["setting_id"]))).'"> <button class="btn btn-secondary" style="background-color: #CB6CE6;">ENTRAR</button></a></td>';
 				echo '<td>'.$linea["name"].'</td>';
 				echo '<td>'. $linea["value"].'</td>';
 		echo "</tr>";

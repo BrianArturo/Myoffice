@@ -57,7 +57,7 @@ FIN SETTINGS
 				if($_SESSION["type"] !="guest"){
 				?>
 				<div class="col-md-6 text-right">
-					<h3><a href="add_casos.php" class="btn" style="background-color: #CB6CE6;">CREAR CASO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
+					<h3><a href="add_casos.php" class="btn btn-secondary" style="background-color: #CB6CE6;">CREAR CASO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
 				</div>
 		
 				<?php } ?>

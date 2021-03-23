@@ -32,7 +32,7 @@ if($_GET['logout']=="logout"){ unset($_SESSION); }
 					<?php 
 						if (!isset($_GET['f'])){ ?>
 					<div class="col-md-6 text-right" id="add" style="display: block;">
-						<h3 ><a href="usuarios.php?f=add" class="btn" style="background-color: #CB6CE6;" onclick="add()">
+						<h3 ><a href="usuarios.php?f=add" class="btn btn-secondary" style="background-color: #CB6CE6;" onclick="add()">
 							CREAR USUARIO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
 					</div><?php } ?>
 				</div>

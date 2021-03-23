@@ -43,7 +43,7 @@ if ($_GET['logout'] == "logout") {
 					<h3>Contacto</h3>
 				</div>
 				<div class="col-md-6 text-right">
-					<h3><a href="view_contact.php" class="btn" style="background-color: #CB6CE6;">CREAR CONTACTO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
+					<h3><a href="view_contact.php" class="btn btn-secondary" style="background-color: #CB6CE6;">CREAR CONTACTO <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </h3>
 				</div>
 			</div>
 
@@ -112,7 +112,7 @@ if ($_GET['logout'] == "logout") {
 						echo '<td>' .
 							'<i class="fa fa-trash fa-2x delete_contact" aria-hidden="true " object="delete_contact" item="' . rawurlencode(base64_encode(auyama_encrypt($linea["contact_id"]))) . '"></i> ' .
 							'<a  href="view_contact.php?id=' . rawurlencode(base64_encode(auyama_encrypt($linea["contact_id"]))) . '">' .
-							'<button class="btn" style="background-color: #CB6CE6;" > EDITAR </button></a>' .
+							'<button class="btn btn-secondary" style="background-color: #CB6CE6;" > EDITAR </button></a>' .
 							'</td>';
 						echo '<td>' . $linea["name"] . '</td>';
 						echo '<td>' . $linea["phone"] . '</td>';

@@ -222,7 +222,7 @@ if ($_GET['logout'] == "logout") {
 
         <div class="col-md-12 mt-3" id="contact">
           <h3>
-            <button type="button" class="btn" style="background-color: #CB6CE6;" id="add-contact">
+            <button type="button" class="btn btn-secondary" style="background-color: #CB6CE6;" id="add-contact">
               <i class="fa fa-plus fa-1x" aria-hidden="true"></i> CREAR
             </button>
             Contactos
@@ -302,7 +302,7 @@ if ($_GET['logout'] == "logout") {
               '<div class="col-md-2" data-toggle="tooltip" data-placement="top" >' .
               '<button class="btn btn-primary delete-contact"   contact-id="' . rawurlencode(base64_encode(auyama_encrypt($u["contact_id"]))) . '"><i class="fa fa-trash   mt-2  " aria-hidden="true"  ></i></button> ' .
               '<a href="view_contact.php?id=' . rawurlencode(base64_encode(auyama_encrypt($u["contact_id"]))) . '">' .
-              '<button class="btn" style="background-color:  #CB6CE6;"><i class="fa fa-address-book   mt-2" aria-hidden="true"></i> EDITAR</button>' .
+              '<button class="btn btn-secondary" style="background-color:  #CB6CE6;"><i class="fa fa-address-book   mt-2" aria-hidden="true"></i> EDITAR</button>' .
               '</a>' .
               $email_icon .
               '</div>' .
@@ -480,7 +480,7 @@ if ($_GET['logout'] == "logout") {
         <div class="col-md-12 mt-3 pt-3">
           <h3 class="">
             <a href="documentos.php?id=<?php echo rawurlencode(base64_encode(auyama_encrypt($c["caso_id"]))); ?>&count=<?php echo rawurlencode(base64_encode(auyama_encrypt($count))); ?>&documentcount=<?php echo rawurlencode(base64_encode(auyama_encrypt($document_count["total"]))); ?>">
-              <button type="button" class="btn"  style="background-color: #CB6CE6;" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
+              <button type="button" class="btn btn-secondary"  style="background-color: #CB6CE6;" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
                 </i> SUBIR DOCUMENTOS
               </button>
             </a>
