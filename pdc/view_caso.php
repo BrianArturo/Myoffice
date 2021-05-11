@@ -252,7 +252,7 @@ if ($_GET['logout'] == "logout") {
               <input type="text" class="form-control" id="contact_name_new" name="contact_name_new" placeholder="Nombre contacto" required>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn" style="background-color: #CB6CE6;"  id="create_add_client" name="create_add_client">
+              <button type="button" class="btn btn-secondary" style="background-color: #CB6CE6;"  id="create_add_client" name="create_add_client">
                 <i class="fa fa-user" aria-hidden="true"></i> Crea Contacto
               </button>
 
