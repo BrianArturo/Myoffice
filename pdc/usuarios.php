@@ -106,7 +106,7 @@ if($_GET["f"]=="add"){
 				<select class="form-control" name="accounttype" required>
 					<option value="user" disabled  selected> Selecciona el tipo de usuario</option>
 					<option value="user">Empleado</option>
-				    <option value="admin"> Administrador</option>
+				    <!--<option value="admin"> Administrador</option>-->
 					<option value="guest">Visitante</option>
 				</select>
 			</div>
