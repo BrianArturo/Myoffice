@@ -129,35 +129,35 @@ if ($_GET['logout'] == "logout") {
       </div>
     </div>
   </div>
-<br>
+  <br>
   <div class="container-fluid maxwidth">
     <div id="content" class="wrapper ">
 
-    <form method="post" id="contact_form" >
-      <div class="row" id="infobox">
+      <form method="post" id="contact_form">
+        <div class="row" id="infobox">
 
 
-        <div class="col-md-12">
-          <div class="form-group form-inline">
-            <label for="name" class="font-weight-bold mr-2">Nombre: </label>
-            <span id="caso_name"> <?php echo empty($c["name"])  ? "Vacio!" : $c["name"];  ?> </span>
-            <input type="text" class="form-control hidden4ajax ml-1" id="caso_name_field" name="caso_name_field" value="<?php echo $c["name"]; ?>" />
-            <button type="button" id="caso_name_field_save" class="btn btn-danger btn-sm hidden4ajax ml-1">guarda</button>
-          </div>
-        </div>
-
-        <div class="col-md-3  ">
-          <div class="form-group form-inline">
-            <label for="code" class="font-weight-bold mr-2">Codigo:</label>
-            <span id="caso_code"> <?php echo empty($c["code"])  ? "Vacio!" : $c["code"]; ?> </span>
-            <div class="hidden4ajax" id="caso_code_container">
-              <input type="text" class="form-control hidden4ajax ml-1" id="caso_code_field" name="caso_code_field" value="<?php echo $c["code"]; ?>" />
-              <button type="button" id="caso_code_field_save" class="btn btn-danger btn-sm hidden4ajax ml-1 ">Guarda</button>
+          <div class="col-md-12">
+            <div class="form-group form-inline">
+              <label for="name" class="font-weight-bold mr-2">Nombre: </label>
+              <span id="caso_name"> <?php echo empty($c["name"])  ? "Vacio!" : $c["name"];  ?> </span>
+              <input type="text" class="form-control hidden4ajax ml-1" id="caso_name_field" name="caso_name_field" value="<?php echo $c["name"]; ?>" />
+              <button type="button" id="caso_name_field_save" class="btn btn-danger btn-sm hidden4ajax ml-1">guarda</button>
             </div>
           </div>
-        </div>
 
-        
+          <div class="col-md-3  ">
+            <div class="form-group form-inline">
+              <label for="code" class="font-weight-bold mr-2">Codigo:</label>
+              <span id="caso_code"> <?php echo empty($c["code"])  ? "Vacio!" : $c["code"]; ?> </span>
+              <div class="hidden4ajax" id="caso_code_container">
+                <input type="text" class="form-control hidden4ajax ml-1" id="caso_code_field" name="caso_code_field" value="<?php echo $c["code"]; ?>" />
+                <button type="button" id="caso_code_field_save" class="btn btn-danger btn-sm hidden4ajax ml-1 ">Guarda</button>
+              </div>
+            </div>
+          </div>
+
+
           <div class="col-md-3 form-inline mitimiti">
             <select class="form-control custom-select small_on_mobile" id="status" name="status" required>
               <option value="<?php echo $c["status"]; ?>" disabled selected>
@@ -171,35 +171,35 @@ if ($_GET['logout'] == "logout") {
             <input type="hidden" id="desstatus" name="desstatus">
             <button id="save_status_caso" class="btn btn-primary text-center" data-toggle="tooltip" data-placement="top" title="Actualisa status del caso"> <i class="fa fa-floppy-o  " aria-hidden="true"> </i> ACTUALIZAR</button>
           </div>
-        
-        <div class="col-md-3">
-          <label for="status" class="font-weight-bold">Creado: </label>
-          <?php echo date("d/m/Y H:i", strtotime($c["creation_date"])); ?>
 
-        </div>
+          <div class="col-md-3">
+            <label for="status" class="font-weight-bold">Creado: </label>
+            <?php echo date("d/m/Y H:i", strtotime($c["creation_date"])); ?>
 
-        <div class="col-md-3">
-          <label for="status" class="font-weight-bold">Actualizado: </label>
-          <?php echo date("d/m/Y H:i", strtotime($c["last_update"])); ?>
-        </div>
+          </div>
 
-        <div class="col-md-3  ">
-          <div class="form-group form-inline">
-            <label for="cuantia" class="font-weight-bold mr-2">Cuantia: </label>
-            <span id="cuantia_caso">
-              <?php
-              echo empty($c["cuantia"])  ? "Vacio!" : "$ " . number_format($c["cuantia"], 0);
-              ?>
-            </span>
-            <div class="hidden4ajax" id="cuantia_caso_container" style="display:none">
-              <input data-type="currency" type="text" class="form-control hidden4ajax  ml-1" id="cuantia_caso_field" name="cuantia_caso_field" value="<?php echo "$" . number_format($c["cuantia"], 0); ?>" />
-              <button type="button" id="cuantia_caso_field_save" class="btn btn-danger btn-sm ml-1 hidden4ajax">guarda</button>
+          <div class="col-md-3">
+            <label for="status" class="font-weight-bold">Actualizado: </label>
+            <?php echo date("d/m/Y H:i", strtotime($c["last_update"])); ?>
+          </div>
+
+          <div class="col-md-3  ">
+            <div class="form-group form-inline">
+              <label for="cuantia" class="font-weight-bold mr-2">Cuantia: </label>
+              <span id="cuantia_caso">
+                <?php
+                echo empty($c["cuantia"])  ? "Vacio!" : "$ " . number_format($c["cuantia"], 0);
+                ?>
+              </span>
+              <div class="hidden4ajax" id="cuantia_caso_container" style="display:none">
+                <input data-type="currency" type="text" class="form-control hidden4ajax  ml-1" id="cuantia_caso_field" name="cuantia_caso_field" value="<?php echo "$" . number_format($c["cuantia"], 0); ?>" />
+                <button type="button" id="cuantia_caso_field_save" class="btn btn-danger btn-sm ml-1 hidden4ajax">guarda</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-3 form-inline mitimiti">
-            <select class="form-control custom-select small_on_mobile" id="contrato" name="contrato" required>
+          <div class="col-md-3 form-inline mitimiti">
+            <select class="form-control custom-select small_on_mobile" id="contrato_id" name="contrato_id" required>
               <option value="<?php echo $c["contrato_id"]; ?>" disabled selected>
                 <?php echo $contrato_caso_array[$c["contrato_id"]]; ?></option>
               <?php
@@ -213,30 +213,30 @@ if ($_GET['logout'] == "logout") {
           </div>
 
 
-        <?php
-        $mysqli2 = new mysqli($host, $user, $pass, $name);
-        $SELECT_OPTIONS = "SELECT * from casos_options where caso_id='" . $id . "' order by option_type ";
-        $mysqli2->real_query($SELECT_OPTIONS);
-        $options = $mysqli2->use_result();
+          <?php
+          $mysqli2 = new mysqli($host, $user, $pass, $name);
+          $SELECT_OPTIONS = "SELECT * from casos_options where caso_id='" . $id . "' order by option_type ";
+          $mysqli2->real_query($SELECT_OPTIONS);
+          $options = $mysqli2->use_result();
 
-        while ($o = $options->fetch_assoc()) {
+          while ($o = $options->fetch_assoc()) {
 
 
 
-          $htmlinfo    .=   '<div class="col-10 col-md-3 option_box" option_id="' . $o["options_id"] . '">' .
-            '<div class="form-group text-truncate" data-toggle="tooltip" data-placement="top" title="' . $o["name"] . '">' .
-            '<span class="  hiddeondesktop option_delete_box text-right" option_id="' . $o["options_id"] . '">' .
-            '<i class="fa fa-trash fa-2x ml-3 mr-3" aria-hidden="true"></i> ' .
-            '</span>' .
-            '<i class="fa fa-2x ' . $option_type[$o["option_type"]] . '" aria-hidden="true"></i> ' .
-            '<span class="hiddeondesktop">' . $o["name"] . ': </span> ' .
-            $o["value"] .
-            '</div>' .
-            '</div>';
-        }
-        echo $htmlinfo;
-        ?>
-      </div>
+            $htmlinfo    .=   '<div class="col-10 col-md-3 option_box" option_id="' . $o["options_id"] . '">' .
+              '<div class="form-group text-truncate" data-toggle="tooltip" data-placement="top" title="' . $o["name"] . '">' .
+              '<span class="  hiddeondesktop option_delete_box text-right" option_id="' . $o["options_id"] . '">' .
+              '<i class="fa fa-trash fa-2x ml-3 mr-3" aria-hidden="true"></i> ' .
+              '</span>' .
+              '<i class="fa fa-2x ' . $option_type[$o["option_type"]] . '" aria-hidden="true"></i> ' .
+              '<span class="hiddeondesktop">' . $o["name"] . ': </span> ' .
+              $o["value"] .
+              '</div>' .
+              '</div>';
+          }
+          echo $htmlinfo;
+          ?>
+        </div>
       </form>
       <div class="row">
 
@@ -273,7 +273,7 @@ if ($_GET['logout'] == "logout") {
               <input type="text" class="form-control" id="contact_name_new" name="contact_name_new" placeholder="Nombre contacto" required>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-secondary" style="background-color: #CB6CE6;"  id="create_add_client" name="create_add_client">
+              <button type="button" class="btn btn-secondary" style="background-color: #CB6CE6;" id="create_add_client" name="create_add_client">
                 <i class="fa fa-user" aria-hidden="true"></i> Crea Contacto
               </button>
 
@@ -497,11 +497,11 @@ if ($_GET['logout'] == "logout") {
           </div>
         </div>
 -->
-        
+
         <div class="col-md-12 mt-3 pt-3">
           <h3 class="">
             <a href="documentos.php?id=<?php echo rawurlencode(base64_encode(auyama_encrypt($c["caso_id"]))); ?>&count=<?php echo rawurlencode(base64_encode(auyama_encrypt($count))); ?>&documentcount=<?php echo rawurlencode(base64_encode(auyama_encrypt($document_count["total"]))); ?>">
-              <button type="button" class="btn btn-secondary"  style="background-color: #CB6CE6;" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
+              <button type="button" class="btn btn-secondary" style="background-color: #CB6CE6;" data-toggle="tooltip" data-placement="top" title="Agrega un documento">
                 </i> SUBIR DOCUMENTOS
               </button>
             </a>
@@ -568,16 +568,20 @@ if ($_GET['logout'] == "logout") {
     }
   </script>
   <script type="text/javascript">
-      var form = document.getElementById('contact_form');
-      form.elements.status.onchange = function() {
-      var option = this.options[this.selectedIndex];
-      this.form.elements.desstatus.value = option.innerHTML;
-    }
+    $( document ).ready(function() {
+        var form = document.getElementById('contact_form');
 
-    form.elements.contrato.onchange = function() {
-      var option = this.options[this.selectedIndex];
-      this.form.elements.descontrato.value = option.innerHTML;
-    }
+        form.elements.status.onchange = function() {
+          var option = this.options[this.selectedIndex];
+          this.form.elements.desstatus.value = option.innerHTML;
+        };
+
+        form.elements.contrato_id.onchange = function() {
+          var option = this.options[this.selectedIndex];
+          this.form.elements.descontrato.value = option.innerHTML;
+        };
+    });
+    
   </script>
 
 </body>

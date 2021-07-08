@@ -468,7 +468,7 @@ jQuery(document).on("click", "#save_contrato_caso", function(event) {
             'function': 'save_contrato_caso',
             'caso_id': caso_id,
             'descontrato': descontrato,
-            'contrato': $("#contrato option:selected").val()
+            'contrato': $("#contrato_id option:selected").val()
         },
         success: function(response) {
             console.log(response);
