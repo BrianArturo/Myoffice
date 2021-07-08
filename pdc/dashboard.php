@@ -30,7 +30,7 @@ foreach($status_caso as $n){
   $status_caso_array[$status_caso_key[0]] = $status_caso_key[1] ;
   #$status_caso_array[$status_caso_key[0]] ="".$status_caso_key[1]."";
 }
-if($_SESSION["type"]=="user")
+if($_SESSION["type"]=="user" || $_SESSION["type"]=="guest")
 {
   $STATS_CASOS="SELECT DISTINCT status,count(status) as quantita FROM casos where status>0 and caso_id in (SELECT caso_id FROM user_casos where user_id ='".$_SESSION["auth_id"]."' )  GROUP BY status";
 }

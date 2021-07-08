@@ -3,7 +3,7 @@ include("inc/config.php");
 require("mailer/class.phpmailer.php");
 require("mailer/phpmailer.lang-it.php");
 
-$secure_time=240;
+$secure_time=3600;
 $recover=false;
 $change=false;  
     //7200  2 oras

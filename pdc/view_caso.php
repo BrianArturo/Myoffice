@@ -60,6 +60,13 @@ if ($_GET['logout'] == "logout") {
     $status_caso_array[$status_caso_key[0]] = $status_caso_key[1];
   }
 
+  $contrato_caso = explode(",", $s["contrato_caso"]);
+  foreach ($contrato_caso as $d) {
+    $contrato_caso_key = explode(":", $d);
+    #echo $status_caso_key[0]." ->> ".$status_caso_key[1]."<br>";
+    $contrato_caso_array[$contrato_caso_key[0]] = $contrato_caso_key[1];
+  }
+
 
 
 
@@ -190,6 +197,20 @@ if ($_GET['logout'] == "logout") {
             </div>
           </div>
         </div>
+
+        <div class="col-md-3 form-inline mitimiti">
+            <select class="form-control custom-select small_on_mobile" id="contrato" name="contrato" required>
+              <option value="<?php echo $c["contrato_id"]; ?>" disabled selected>
+                <?php echo $contrato_caso_array[$c["contrato_id"]]; ?></option>
+              <?php
+              foreach ($contrato_caso_array as $z => $y) {
+                echo '<option value="' . $z . '">' . $y . '</option>';
+              }
+              ?>
+            </select>
+            <input type="hidden" id="descontrato" name="descontrato">
+            <button id="save_contrato_caso" class="btn btn-primary text-center" data-toggle="tooltip" data-placement="top" title="tipo de contrato"> <i class="fa fa-floppy-o  " aria-hidden="true"> </i> ACTUALIZAR</button>
+          </div>
 
 
         <?php
@@ -551,6 +572,11 @@ if ($_GET['logout'] == "logout") {
       form.elements.status.onchange = function() {
       var option = this.options[this.selectedIndex];
       this.form.elements.desstatus.value = option.innerHTML;
+    }
+
+    form.elements.contrato.onchange = function() {
+      var option = this.options[this.selectedIndex];
+      this.form.elements.descontrato.value = option.innerHTML;
     }
   </script>
 

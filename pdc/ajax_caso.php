@@ -155,7 +155,7 @@ if ($_POST["function"] == "new_caso") {
   $mysqli2->real_query($sql_relationship);
   bitacoraNewCaso($id,' NOMBRE ' . $name . ' CODIGO ' . $code . ' ESTADO ' . $desstatus . ' CUANTIA ' . $cuantia . ' DESCRIPCION DEL CASO ' . $description);
 
-  echo '<i class="fa fa-check-circle" aria-hidden="true"></i> los cambios fueron guardados.@' . rawurlencode(base64_encode(auyama_encrypt($mysqli2->insert_id)));
+  echo '<i class="fa fa-check-circle" aria-hidden="true"></i> los cambios fueron guardados.@' . rawurlencode(base64_encode(auyama_encrypt($id)));
 }
 
 
@@ -246,7 +246,16 @@ if ($_POST["function"] == "delete_item") {
   echo print_r($_POST);
 }
 
+if ($_POST["function"] == "save_contrato_caso") {
 
+  $contrato_id = $mysqli2->real_escape_string($_POST["contrato"]);
+  $descontrato = $mysqli2->real_escape_string($_POST["descontrato"]);
+  $SQL_CASO_STATUS = "UPDATE casos set contrato_id ='" . $contrato_id . "' where caso_id=" . $_ID;
+  $mysqli2->real_query($SQL_CASO_STATUS);
+  bitacoraUpdateCaso($_ID, $descontrato);
+  # echo  $SQL_CASO_STATUS;
+  sleep(1);
+}
 
 
 if ($_POST["function"] == "save_status_caso") {

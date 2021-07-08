@@ -4,12 +4,12 @@ var scrollTimer;
 
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
 
 
 
-    $("#contact-spool").on("click", '.delete-contact', function (event) {
+    $("#contact-spool").on("click", '.delete-contact', function(event) {
         var caso_id = $("#caso_id").val();
         //alert("DELETE CONTACT:" +  $(this).attr("contact-id") + " CASO:" + caso_id);
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
                 'caso_id': caso_id,
                 'client_id': $(this).attr("contact-id"),
             },
-            success: function (msg) {
+            success: function(msg) {
                 console.log(msg);
                 $("#contact-spool").empty();
                 $("#contact-spool").html(msg);
@@ -31,10 +31,10 @@ $(document).ready(function () {
 
     });
 
-    jQuery('#add-contact').click(function () {
+    jQuery('#add-contact').click(function() {
         $("#contact-form").toggle("slow");
     });
-    $(function () {
+    $(function() {
 
 
         /*  AUTO COMPLETE */
@@ -42,7 +42,7 @@ $(document).ready(function () {
             $("#contact_name").autocomplete({
                 source: "search.php",
                 minLength: 3,
-                select: function (event, ui) {
+                select: function(event, ui) {
                     var caso_id = $("#caso_id").val();
                     $.ajax({
                         type: 'POST',
@@ -52,7 +52,7 @@ $(document).ready(function () {
                             'caso_id': caso_id,
                             'client_id': ui.item.id,
                         },
-                        success: function (msg) {
+                        success: function(msg) {
                             console.log(msg);
                             $("#contact_name").val("");
                             $("#contact-spool").empty();
@@ -68,9 +68,9 @@ $(document).ready(function () {
     /*jQuery(".popup,.gallery-item a").fancybox();
     jQuery(".popupajax").fancybox({type: 'ajax'});*/
     /* SCROLL TO THE TOP */
-    jQuery(window).scroll(function () {
+    jQuery(window).scroll(function() {
         clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function () {
+        scrollTimer = setTimeout(function() {
             var scrollY = jQuery(window).scrollTop();
 
             if (scrollY > 150) {
@@ -86,14 +86,14 @@ $(document).ready(function () {
     }).trigger('scroll');
 
 
-    jQuery('#back-top').click(function () {
+    jQuery('#back-top').click(function() {
         jQuery('body,html').animate({ scrollTop: 0 }, 1000);
     });
 
     /*END SCROLL TO THE TOP */
 
     /* SLIDER TOOLS */
-    jQuery('#opener').click(function () {
+    jQuery('#opener').click(function() {
         jQuery('#opener i').toggleClass('rotation', '2000');
         jQuery('#mywidgetframe').toggleClass('openwidgetframe', '2000');
     })
@@ -117,17 +117,15 @@ $(document).ready(function () {
             ['para', ['ul', 'ol', 'paragraph']],
             ['codeview']
         ]
-    }
-    );
+    });
     //$('.notes').summernote({minHeight: 150,z});
 
     table = $('#contatti').DataTable({
         "pagingType": "simple_numbers",
         responsive: { details: false },
         language: { url: 'js/Spanish.json' },
-        dom: "lfrtBip",//'<"top"lB>rt<"bottom"ip>',//"Bfrlip", 
-        buttons: [
-            {
+        dom: "lfrtBip", //'<"top"lB>rt<"bottom"ip>',//"Bfrlip", 
+        buttons: [{
                 //Botón para Excel
                 extend: 'excelHtml5',
                 titleAttr: 'Excel',
@@ -142,8 +140,7 @@ $(document).ready(function () {
             }
         ]
 
-    }
-    );
+    });
 
 });
 
@@ -154,12 +151,12 @@ $.fn.DataTable.ext.pager.numbers_length = 4;
 
 
 
-$('#lang').on('change', function () {
+$('#lang').on('change', function() {
     //alert( $(this).find(":selected").val() );
     $("#load-lang").submit();
 });
 
-$('#contatti').on('length.dt', function (e, settings, len) {
+$('#contatti').on('length.dt', function(e, settings, len) {
     console.log('New page length: ' + len);
 
     $.ajax({
@@ -169,7 +166,7 @@ $('#contatti').on('length.dt', function (e, settings, len) {
             'val': len,
             'var': 'len',
         },
-        success: function (msg) {
+        success: function(msg) {
             console.log(msg);
         }
     });
@@ -178,7 +175,7 @@ $('#contatti').on('length.dt', function (e, settings, len) {
 });
 
 
-$('#contatti').on('order.dt', function () {
+$('#contatti').on('order.dt', function() {
 
     var order = table.order();
     console.log('Ordering on column ' + order[0][0] + '  ' + order[0][1] + ' ');
@@ -192,7 +189,7 @@ $('#contatti').on('order.dt', function () {
             'val': order[0][0] + ',' + order[0][1],
             'var': 'order',
         },
-        success: function (msg) {
+        success: function(msg) {
             console.log(msg);
         }
     });
@@ -202,7 +199,7 @@ $('#contatti').on('order.dt', function () {
 });
 
 
-$('#contatti').on('page.dt', function () {
+$('#contatti').on('page.dt', function() {
     var info = table.page.info();
     console.log('Showing page: ' + info.page + ' of ' + info.pages);
     //https://datatables.net/reference/api/page()
@@ -215,7 +212,7 @@ $('#contatti').on('page.dt', function () {
             'var': 'page',
 
         },
-        success: function (msg) {
+        success: function(msg) {
             console.log(msg);
         }
     });
@@ -226,7 +223,7 @@ $('#contatti').on('page.dt', function () {
 
 
 
-jQuery(document).on("click", "#send", function (event) {
+jQuery(document).on("click", "#send", function(event) {
 
     var form = jQuery('#quote-form');
 
@@ -244,7 +241,7 @@ jQuery(document).on("click", "#send", function (event) {
             url: 'send-quota.php',
             type: 'post',
             data: dataform,
-            success: function (response) {
+            success: function(response) {
 
                 jQuery("#form-save").hide();
                 jQuery("#quote-box").show();
@@ -259,7 +256,7 @@ jQuery(document).on("click", "#send", function (event) {
 });
 
 
-jQuery(document).on("click", "#update_contact", function (event) {
+jQuery(document).on("click", "#update_contact", function(event) {
     var form = jQuery('#contact_form');
     if (form[0].checkValidity() === false) {
         //alert("non inviare");
@@ -275,7 +272,7 @@ jQuery(document).on("click", "#update_contact", function (event) {
             url: 'ajax_contact.php',
             type: 'post',
             data: dataform,
-            success: function (response) {
+            success: function(response) {
 
                 jQuery("#spinner").toggle("slow");
                 jQuery("#log").toggle("slow");
@@ -288,7 +285,7 @@ jQuery(document).on("click", "#update_contact", function (event) {
 
 });
 
-jQuery(document).on("click", "#create_contact", function (event) {
+jQuery(document).on("click", "#create_contact", function(event) {
     var form = jQuery('#contact_form');
     if (form[0].checkValidity() === false) {
         //alert("non inviare");
@@ -305,14 +302,14 @@ jQuery(document).on("click", "#create_contact", function (event) {
             url: 'ajax_contact.php',
             type: 'post',
             data: dataform,
-            success: function (response) {
+            success: function(response) {
 
                 jQuery("#spinner").toggle("slow");
                 jQuery("#log").toggle("slow");
                 jQuery("#log").empty();
                 jQuery("#log").html(response);
                 jQuery("#log").delay(2000).toggle("slow");
-                setTimeout(function () {
+                setTimeout(function() {
                     $(window.location).attr('href', 'contactos.php');
                 }, 4000);
 
@@ -322,7 +319,7 @@ jQuery(document).on("click", "#create_contact", function (event) {
 
 });
 
-jQuery(document).on("click", "#save_caso", function (event) {
+jQuery(document).on("click", "#save_caso", function(event) {
     $("#save_caso").attr("disabled", true);
     event.preventDefault();
     jQuery("#spinner").toggle("slow");
@@ -337,14 +334,14 @@ jQuery(document).on("click", "#save_caso", function (event) {
             'caso_id': caso_id,
             'nota_caso': nota_caso
         },
-        success: function (response) {
+        success: function(response) {
 
             jQuery("#spinner").toggle("slow");
             jQuery("#log").toggle("slow");
             jQuery("#log").empty();
             jQuery("#log").html(response);
             jQuery("#log").delay(3000).toggle("slow");
-            setTimeout(function () {
+            setTimeout(function() {
                 $("#save_caso").attr("disabled", false);
             }, 3000);
         }
@@ -356,7 +353,7 @@ jQuery(document).on("click", "#save_caso", function (event) {
 
 
 
-jQuery(document).on("click", "#new_caso", function (event) {
+jQuery(document).on("click", "#new_caso", function(event) {
     var form = jQuery('#contact_form');
     if (form[0].checkValidity() === false) {
         //alert("non inviare");
@@ -373,7 +370,7 @@ jQuery(document).on("click", "#new_caso", function (event) {
             url: 'ajax_caso.php',
             type: 'post',
             data: dataform,
-            success: function (response) {
+            success: function(response) {
 
                 jQuery("#spinner").toggle("slow");
                 jQuery("#log").toggle("slow");
@@ -382,7 +379,7 @@ jQuery(document).on("click", "#new_caso", function (event) {
 
                 jQuery("#log").html(res[0]);
                 jQuery("#log").delay(2000).toggle("slow");
-                setTimeout(function () {
+                setTimeout(function() {
                     $(window.location).attr('href', 'view_caso.php?id=' + res[1]);
                 }, 4000);
 
@@ -394,7 +391,7 @@ jQuery(document).on("click", "#new_caso", function (event) {
 
 
 
-jQuery(document).on("click", ".delete_caso ,.delete_contact, .delete_note", function (event) {
+jQuery(document).on("click", ".delete_caso ,.delete_contact, .delete_note", function(event) {
 
     if (confirm("En verdad quiere borrar esto?")) {
         console.log("borrado " + $(this).attr("object") + " - " + $(this).attr("item"));
@@ -410,7 +407,7 @@ jQuery(document).on("click", ".delete_caso ,.delete_contact, .delete_note", func
                 'item_id': $(this).attr("item"),
                 'object_name': $(this).attr("object")
             },
-            success: function (response) {
+            success: function(response) {
                 console.log(response);
             }
         });
@@ -421,7 +418,7 @@ jQuery(document).on("click", ".delete_caso ,.delete_contact, .delete_note", func
 });
 
 
-jQuery('#add_note').click(function () {
+jQuery('#add_note').click(function() {
     $("#note-form").toggle("slow");
 });
 
@@ -431,7 +428,7 @@ jQuery('#add_note').click(function () {
 
 
 
-jQuery(document).on("click", "#save_status_caso", function (event) {
+jQuery(document).on("click", "#save_status_caso", function(event) {
     var caso_id = $("#caso_id").val();
     var desstatus = $("#desstatus").val();
     var jquery_caso_id = $("#save_status_caso i");
@@ -447,7 +444,7 @@ jQuery(document).on("click", "#save_status_caso", function (event) {
             'desstatus': desstatus,
             'status': $("#status option:selected").val()
         },
-        success: function (response) {
+        success: function(response) {
             console.log(response);
             jquery_caso_id.removeClass("fa-spinner fa-spin  fa-fw ");
             jquery_caso_id.addClass("fa-floppy-o");
@@ -456,7 +453,32 @@ jQuery(document).on("click", "#save_status_caso", function (event) {
 });
 
 
-jQuery(document).on("click", "#save_contact_type", function (event) {
+
+jQuery(document).on("click", "#save_contrato_caso", function(event) {
+    var caso_id = $("#caso_id").val();
+    var descontrato = $("#descontrato").val();
+    var jquery_caso_id = $("#save_contrato_caso i");
+    jquery_caso_id.removeClass("fa-floppy-o");
+    jquery_caso_id.addClass("fa-spinner fa-spin   fa-fw");
+
+    $.ajax({
+        type: 'POST',
+        url: 'ajax_caso.php',
+        data: {
+            'function': 'save_contrato_caso',
+            'caso_id': caso_id,
+            'descontrato': descontrato,
+            'contrato': $("#contrato option:selected").val()
+        },
+        success: function(response) {
+            console.log(response);
+            jquery_caso_id.removeClass("fa-spinner fa-spin  fa-fw ");
+            jquery_caso_id.addClass("fa-floppy-o");
+        }
+    });
+});
+
+jQuery(document).on("click", "#save_contact_type", function(event) {
     // alert("Guarda el tipo di contacto" + $(this).attr("selectctl"));
     //alert(" contact id: " + $(this).attr("selectctl") + " status" +$("#"+ $(this).attr("selectctl") +" option:selected").val());
 
@@ -484,7 +506,7 @@ jQuery(document).on("click", "#save_contact_type", function (event) {
             'contact_id': contact_id,
             'contact_type': contact_type
         },
-        success: function (response) {
+        success: function(response) {
             console.log(response);
             jquery_contact_id.removeClass("fa-spinner fa-spin fa-3x fa-fw ");
             jquery_contact_id.addClass("fa-floppy-o");
@@ -498,7 +520,7 @@ jQuery(document).on("click", "#save_contact_type", function (event) {
 
 
 
-jQuery(document).on("click", ".delete-file", function (event) {
+jQuery(document).on("click", ".delete-file", function(event) {
     if (confirm("En verdad quiere borrar este archivo?")) {
         var file_id = $(this).attr("file-id");
         var caso_id = $("#caso_id").val();
@@ -510,7 +532,7 @@ jQuery(document).on("click", ".delete-file", function (event) {
                 'file_id': file_id,
                 'caso_id': caso_id
             },
-            success: function (response) {
+            success: function(response) {
                 console.log("Borra:" + file_id);
                 console.log("Delete Response: " + response);
                 //$("h3").text("Documentos-Cantidad: "+response);
@@ -521,7 +543,7 @@ jQuery(document).on("click", ".delete-file", function (event) {
                         'function': 'list_document',
                         'caso_id': caso_id
                     },
-                    success: function (response) {
+                    success: function(response) {
                         $("#filespool").empty();
                         $("#filespool").html(response);
                         update_icons();
@@ -537,7 +559,7 @@ jQuery(document).on("click", ".delete-file", function (event) {
     }
 });
 
-jQuery(document).on("click", "#save_note", function (event) {
+jQuery(document).on("click", "#save_note", function(event) {
 
     event.preventDefault();
     jQuery("#spinner-note").toggle("slow");
@@ -559,7 +581,7 @@ jQuery(document).on("click", "#save_note", function (event) {
             'note_category': note_category,
             'note_text': note_text
         },
-        success: function (response) {
+        success: function(response) {
             jQuery("#note-spool").html(response);
             jQuery("#spinner-note").toggle("slow");
             jQuery("#note-spool").toggle("slow");
@@ -591,7 +613,7 @@ function update_icons() {
 
 
 
-jQuery(document).on("click", "#create_add_client", function (event) {
+jQuery(document).on("click", "#create_add_client", function(event) {
 
     event.preventDefault();
     $("#create_add_client").attr("disabled", true);
@@ -610,7 +632,7 @@ jQuery(document).on("click", "#create_add_client", function (event) {
             'contact_name_new': contact_name_new
 
         },
-        success: function (response) {
+        success: function(response) {
             $("#create_add_client").attr("disabled", false);
             $("#create_add_client i").removeClass(" fa-spin  fa-fw ");
             $("#contact_name_new").val("");
@@ -626,10 +648,10 @@ jQuery(document).on("click", "#create_add_client", function (event) {
 // Jquery Dependency
 
 $("input[data-type='currency']").on({
-    keyup: function () {
+    keyup: function() {
         formatCurrency($(this));
     },
-    blur: function () {
+    blur: function() {
         formatCurrency($(this), "blur");
     }
 });
