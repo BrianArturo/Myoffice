@@ -168,18 +168,18 @@ if ($_GET['logout'] == "logout") {
               }
               ?>
             </select>
-            <input type="hidden" id="desstatus" name="desstatus">
+            
             <button id="save_status_caso" class="btn btn-primary text-center" data-toggle="tooltip" data-placement="top" title="Actualisa status del caso"> <i class="fa fa-floppy-o  " aria-hidden="true"> </i> ACTUALIZAR</button>
           </div>
 
           <div class="col-md-3">
-            <label for="status" class="font-weight-bold">Creado: </label>
+            <label  class="font-weight-bold">Creado: </label>
             <?php echo date("d/m/Y H:i", strtotime($c["creation_date"])); ?>
 
           </div>
 
           <div class="col-md-3">
-            <label for="status" class="font-weight-bold">Actualizado: </label>
+            <label  class="font-weight-bold">Actualizado: </label>
             <?php echo date("d/m/Y H:i", strtotime($c["last_update"])); ?>
           </div>
 
@@ -198,6 +198,8 @@ if ($_GET['logout'] == "logout") {
             </div>
           </div>
 
+
+          <?php if($_SESSION["auth_id"]==108) {  ?>
           <div class="col-md-3 form-inline mitimiti">
             <select class="form-control custom-select small_on_mobile" id="contrato_id" name="contrato_id" required>
               <option value="<?php echo $c["contrato_id"]; ?>" disabled selected>
@@ -208,9 +210,10 @@ if ($_GET['logout'] == "logout") {
               }
               ?>
             </select>
-            <input type="hidden" id="descontrato" name="descontrato">
-            <button id="save_contrato_caso" class="btn btn-primary text-center" data-toggle="tooltip" data-placement="top" title="tipo de contrato"> <i class="fa fa-floppy-o  " aria-hidden="true"> </i> ACTUALIZAR</button>
+            
+            <button id="save_contrato_caso" class="btn btn-primary text-center" data-toggle="tooltip" data-placement="top" title="Contrato"> <i class="fa fa-floppy-o  " aria-hidden="true"> </i> ACTUALIZAR</button>
           </div>
+          <?php } ?>
 
 
           <?php
@@ -567,22 +570,7 @@ if ($_GET['logout'] == "logout") {
 
     }
   </script>
-  <script type="text/javascript">
-    $( document ).ready(function() {
-        var form = document.getElementById('contact_form');
-
-        form.elements.status.onchange = function() {
-          var option = this.options[this.selectedIndex];
-          this.form.elements.desstatus.value = option.innerHTML;
-        };
-
-        form.elements.contrato_id.onchange = function() {
-          var option = this.options[this.selectedIndex];
-          this.form.elements.descontrato.value = option.innerHTML;
-        };
-    });
-    
-  </script>
+ 
 
 </body>
 

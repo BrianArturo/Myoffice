@@ -57,6 +57,7 @@ $(document).ready(function() {
                             $("#contact_name").val("");
                             $("#contact-spool").empty();
                             $("#contact-spool").html(msg);
+                            location.reload(true);
                         }
                     });
                 }
@@ -430,8 +431,8 @@ jQuery('#add_note').click(function() {
 
 jQuery(document).on("click", "#save_status_caso", function(event) {
     var caso_id = $("#caso_id").val();
-    var desstatus = $("#desstatus").val();
-    var jquery_caso_id = $("#save_status_caso i");
+    var desstatus = $('select[name="status"] option:selected').text();
+    var jquery_caso_id = jQuery("i", this);
     jquery_caso_id.removeClass("fa-floppy-o");
     jquery_caso_id.addClass("fa-spinner fa-spin   fa-fw");
 
@@ -448,6 +449,7 @@ jQuery(document).on("click", "#save_status_caso", function(event) {
             console.log(response);
             jquery_caso_id.removeClass("fa-spinner fa-spin  fa-fw ");
             jquery_caso_id.addClass("fa-floppy-o");
+
         }
     });
 });
@@ -456,8 +458,8 @@ jQuery(document).on("click", "#save_status_caso", function(event) {
 
 jQuery(document).on("click", "#save_contrato_caso", function(event) {
     var caso_id = $("#caso_id").val();
-    var descontrato = $("#descontrato").val();
-    var jquery_caso_id = $("#save_contrato_caso i");
+    var descontrato = $('select[name="contrato_id"] option:selected').text();
+    var jquery_caso_id = jQuery("i", this);
     jquery_caso_id.removeClass("fa-floppy-o");
     jquery_caso_id.addClass("fa-spinner fa-spin   fa-fw");
 
@@ -474,6 +476,7 @@ jQuery(document).on("click", "#save_contrato_caso", function(event) {
             console.log(response);
             jquery_caso_id.removeClass("fa-spinner fa-spin  fa-fw ");
             jquery_caso_id.addClass("fa-floppy-o");
+
         }
     });
 });
@@ -510,6 +513,7 @@ jQuery(document).on("click", "#save_contact_type", function(event) {
             console.log(response);
             jquery_contact_id.removeClass("fa-spinner fa-spin fa-3x fa-fw ");
             jquery_contact_id.addClass("fa-floppy-o");
+
         }
     });
 
